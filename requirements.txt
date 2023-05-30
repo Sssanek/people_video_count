@@ -1,0 +1,10 @@
+Flask
+loguru
+Werkzeug
+python-multipart
+opencv-python
+Pillow
+tqdm
+pandas
+transformers
+timm

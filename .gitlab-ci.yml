@@ -1,0 +1,22 @@
+stages:
+  - build
+  - run
+
+build:
+  stage: build
+  script:
+    - docker build -t 400/people_video_count .
+    - docker image prune -f
+  tags:
+    - builder
+  only:
+    - master
+
+start-service:
+  stage: run
+  script:
+    - /srv/scripts/recreate_service.sh people-video-count-server
+  tags:
+    - builder
+  only:
+    - master

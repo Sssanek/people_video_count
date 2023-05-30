@@ -1,0 +1,27 @@
+<!doctype html>
+<head>
+<title>Count people web</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<h2>Select a video to upload and get number of people</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="file" autocomplete="off" accept=".mp4" required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Upload">
+	</p>
+</form>
